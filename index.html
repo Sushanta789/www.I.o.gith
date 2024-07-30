@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Watch Embeder</title>
+    <script src="https://kit.fontawesome.com/f880ee961a.js" crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="index.css"/>
+  </head>
+  <body>
+    <div class="fluid-container">
+      <div class="video">
+        <div class="loading">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          
+        </div>
+        <video src="#"></video>
+        <div class="controller">
+         <p><span id="current">0:00</span><span id="duration">0:00</span></p>
+          <div class="range-container">
+            <div id="range" onclick="changeRangeValue(event)" ontouchmove="moveRangeValue(event)">
+             <div id="value">
+              <span></span>
+             </div>
+            </div>
+          </div>
+         <div class="controller-btns">
+           <button onclick="skipBtn('left')"><i class="fas fa-undo-alt"></i></button>
+           <button onclick="playOrNot(this)"><i class="fas fa-play"></i></button>
+           <button onclick="skipBtn('right')"><i class="fas fa-redo-alt"></i></button>
+           <button id="volume" onclick="showVolumeOp(this)"><i class="fas fa-angle-left"></i></button>
+         </div>
+         <div class="upDownV">
+<button><i class="fas fa-volume-up"></i></button>
+           <input type="range" max="100" value="100" oninput="volumeChange(this)"/>
+         </div>
+        </div>
+      </div>
+        <div class="uploadVideo" onclick="fileInput.click()">
+         <h3>upload file</h3>
+
+        </div>
+    </div>
+    <input type="file" accept="video/*" onchange="addVideos()"/>
+     <script src="index.js"></script>
+  </body>
+</html>
