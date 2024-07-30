@@ -1,0 +1,246 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+*:focus {
+  outline: none;
+}
+body, html {
+  min-width: 100vw;
+}
+body,div.video, div.range-container, div.controller-btns,div.controller-btns button,div.upDownV button, div.embeder, div.active{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+div.fluid-container {
+  width: 100vw;
+  overflow-y: scroll;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.fluid-container div.video {
+  width: 100%;
+  height: 40vh;
+  flex-wrap: wrap;
+  position: relative;
+  overflow: hidden;
+}
+div.video video {
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  position: relative;
+  object-fit: contain;
+}
+div.video:hover div.controller {
+  visibility: visible;
+}
+div.video div.controller {
+  position: absolute;
+  bottom: 0%;
+  width: 100%;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  visibility: hidden;
+}
+div.controller p {
+  width: 95%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: monospace;
+  font-size: 1.2em;
+  color: white;
+}
+div.controller p span {
+  padding: 5px;
+  background: rgba(0,0,0,.40);
+  border-radius: 3px;
+}
+div.controller div.range-container {
+  width: 60%;
+  height: 30px;
+}
+div#range, div#range div#value {
+  border-radius: 300px;
+}
+div.range-container div#range {
+  width: 80%;
+  background-color: rgba(255,255,255,.34);
+}
+div#range div#value {
+  height: 4px;
+  width: 0%;
+  background-color: mediumseagreen;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+div#value span {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: mediumseagreen;
+  right: -6px;
+  top: -3.57px;
+  
+}
+div.video div.controller-btns {
+  width: 40%;
+  justify-content: space-around!important;
+}
+div.controller-btns button {
+  height: 29px;
+  width: 29px;
+  margin: 5px;
+  font-size: 0.9em;
+  border: none;
+  background-color: transparent;
+  color: rgba(210,210,210,1);
+}
+div.controller-btns button:active {
+  font-size: 1.2em;
+  margin: 5px;
+}
+button#volume {
+  font-size: 1.2em!important;
+}
+button#volume:active {
+  font-size: 1.9em!important;
+  margin: 5px!important;
+}
+div.upDownV {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: absolute;
+  top: -35%;
+  right: -100%;
+  transition: right 0.5s;
+  background: rgba(0,0,0,.34);
+}
+.upDownV input[type=range] {
+  width: 80%;
+  margin-right: 8px;
+}
+.upDownV button {
+  width: 20px;
+  height: 20px;
+  margin-left: 5px;
+  border-radius: 50%;
+  border: none;
+  background-color: transparent;
+  color: white;
+}
+div.uploadVideo {
+  width: 100%;
+  background: mediumseagreen;
+  color: white;
+  font-family: monospace;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2em;
+  border: none;
+  height: 60px;
+  text-transform: capitalize;
+}
+div.uploadVideo:active {
+ border: 2px solid mediumseagreen;
+ background: transparent;
+ color: mediumseagreen;
+}
+div.video div.loading {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  z-index: 2;
+  border-radius: 300px;
+}
+div.active {
+  transform: rotate(0deg);
+  transform-origin: center;
+  animation: rotateThis 1s linear infinite;
+}
+@keyframes rotateThis {
+  0% {
+    transform: rotate(0deg);
+  } 100% {
+    transform: rotate(360deg);
+  }
+}
+div.active span {
+  position: absolute;
+  background-color: white;
+  border-radius: 50%;
+  display: block;
+  z-index: 1;
+}
+div.loading span:nth-child(1) {
+  left: -7px;
+  top: 5px;
+  width: 10px;
+  height: 10px;
+}
+div.loading span:nth-child(2) {
+  left: -12px;
+  top: 20px;
+  width: 9px;
+  height: 9px;
+  opacity: 0.9;
+}
+div.loading span:nth-child(3) {
+left: -10px;
+  top: 35px;
+  width: 8px;
+  height: 8px;
+  opacity: 0.8;
+}
+div.loading span:nth-child(4) {
+left: -4px;
+  top: 47px;
+  width: 7px;
+  height: 7px;
+  opacity: 0.7;
+}
+div.loading span:nth-child(5) {
+left: 5px;
+  top: 55px;
+  width: 6px;
+  height: 6px;
+  opacity: 0.6;
+}
+div.loading span:nth-child(6) {
+left: 17px;
+  top: 59.5px;
+  width: 5px;
+  height: 5px;
+  opacity: 0.5;
+}
+button#compress {
+ display: none;
+}
+input[type=file] {
+ display: none;
+}
+@media screen and (min-width: 900px) {
+ body, html {
+  min-height: 100vh;
+ }
+  div.fluid-container {
+    width: 80vw!important;
+  }
+  div.video {
+   height: 360px!important;
+  }
+}
